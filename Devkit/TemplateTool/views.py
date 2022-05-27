@@ -232,7 +232,9 @@ def write_html_files(nav_path, footer_path, other, custom_file_template_path, pr
     with open(custom_file_template_path) as inf:
         txt = inf.read()
         soup = bs4.BeautifulSoup(txt)
-
+    #changing template color accoring to user's input
+    soup.body['style'] = "background-color: {};".format(project_config_file['bg_color'])
+    #changing color end here
     soup.body.nav.append(nav)
     if other:
         soup.body.append(other)
