@@ -1,5 +1,5 @@
 # DevKit - Developer's Tool Kit
-#### This Web Tool Kit is design to help developers to quickly generate basic template of project by providing requirments.
+#### This Web Tool Kit is design to help developers to quickly generate basic template of project by providing requirements.
 #### Project Devloped by : Team PSU
 **Tech Stack used**
   * Python
