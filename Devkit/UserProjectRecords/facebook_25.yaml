@@ -1,0 +1,11 @@
+Home_page_heading: RRR
+Home_page_text: Fuck you
+bg_color: '#ffffff'
+project_name: facebook
+selected_backend: Flask
+selected_database: Sqlite
+selected_footer: 3
+selected_frontend: Bootstrap
+selected_loginform: 3
+selected_nav_bar: 1
+selected_signupform: 1

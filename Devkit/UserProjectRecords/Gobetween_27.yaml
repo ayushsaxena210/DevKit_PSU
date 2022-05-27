@@ -1,0 +1,13 @@
+Home_page_heading: 'Test for the existence of an attribute:'
+Home_page_text: If you have questions about Beautiful Soup, or run into problems,
+  send mail to the discussion group. If your problem involves parsing an HTML document,
+  be sure to mention what the diagnose() function says about that document.
+bg_color: '#c8acac'
+project_name: Gobetween
+selected_backend: Django
+selected_database: Sqlite
+selected_footer: 3
+selected_frontend: Bootstrap
+selected_loginform: 3
+selected_nav_bar: 1
+selected_signupform: 2

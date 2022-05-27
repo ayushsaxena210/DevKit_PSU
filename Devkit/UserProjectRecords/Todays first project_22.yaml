@@ -1,0 +1,11 @@
+Home_page_heading: Hey There
+Home_page_text: Nothing in mind to write here!!!!
+bg_color: '#cfefcc'
+project_name: Todays first project
+selected_backend: Flask
+selected_database: Oracle
+selected_footer: 2
+selected_frontend: Bootstrap
+selected_loginform: 1
+selected_nav_bar: 3
+selected_signupform: 2

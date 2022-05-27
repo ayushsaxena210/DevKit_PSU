@@ -1,0 +1,4 @@
+project_name: Google
+selected_backend: PHP
+selected_database: MySql
+selected_frontend: Angular

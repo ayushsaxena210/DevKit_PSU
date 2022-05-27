@@ -1,0 +1,11 @@
+Home_page_heading: Heading
+Home_page_text: NPNPNPNPNNPNPPNNPNPNPPNPNPNNP
+bg_color: '#dda1a1'
+project_name: my first project
+selected_backend: Django
+selected_database: MySql
+selected_footer: 2
+selected_frontend: Bootstrap
+selected_loginform: 1
+selected_nav_bar: 3
+selected_signupform: 2

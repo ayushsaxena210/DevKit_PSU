@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <title>DevKit | Dashboard</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/cropiq.min.css' %}" rel="stylesheet">
+
+    <style type="text/css">
+
+h6  { padding: 7px;}
+@font-face {
+   font-family: myFirstFont;
+   src: url(sansation_light.woff);
+}
+
+* {
+   font-family: myFirstFont;
+}
+</style>
+
+</head>
+<body>
+<!-- Nav started -->
+ <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+                     <h5><a href="/" style="color:white;">DevKit</a></h5>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFGiJ_tIEbFuvt7J7d17ldDOetn-PZteEIDQ&usqp=CAU" style="max-width: 60px">
+                                <span class="ml-2 d-none d-lg-inline text-white small">{{request.user.first_name|title}}&nbsp;{{request.user.last_name|title}}</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal"
+                                    data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+<!-- Nav ended -->
+<!-- form start -->
+ <div class="container-login">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-12 col-md-9">
+                <div class="card shadow-sm my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="login-form">
+
+
+                                        <form class="user" method="post">
+                                            {% csrf_token %}
+                                            <h6 class="h4 text-gray-900 mb-4">Enter Project name:</h6>
+                                             <center><input type="text" class="form-control" placeholder="Project Name" name="project_name"></center>
+                                            <br>
+                                            <h6 class="h4 text-gray-900 mb-4">Select Frontend Framework :</h6>
+                                            <div class="text-center">
+                                          <input type="radio" id="fd1" name="fd" value="1" hidden>
+                                            <label for="fd1"> <img src="{% static 'images/bootstrap.jpg' %}" alt="bootstrap" width="80" height="80" onclick="mark(this)">
+                                          </label>
+                                           &#160; &#160; &#160; &#160; &#160; &#160; &#160;
+                                          <input type="radio" id="fd2" name="fd" value="2" hidden>
+                                          <label for="fd2"> <img src="{% static 'images/angular.png' %}" alt="angular" width="75" height="75" onclick="mark(this)"></label>
+
+                                          &#160; &#160; &#160; &#160; &#160; &#160; &#160;
+                                          <input type="radio" id="fd3" name="fd" value="3" hidden>
+                                          <label for="fd3"> <img src="{% static 'images/html_css_js_logo.png' %}" alt="HTML CSS JavaScript" width="240" height="80" onclick="mark(this)"></label>
+                                            </div>
+                                                <br>
+
+                                        <h6 class="h4 text-gray-900 mb-4">Select Backend Framework :</h6>
+                                            <div class="text-center">
+                                        <div name="input_div">
+                                          <input type="radio" id="bd1" name="bd" value="1" hidden>
+                                            <label for="bd1"> <img src="{% static 'images/django_logo.png' %}" alt="Django" width="150" height="80" onclick="mark(this)">
+                                          </label>
+                                           &#160; &#160; &#160; &#160; &#160;&#160; &#160;
+                                          <input type="radio" id="bd2" name="bd" value="2" hidden>
+                                          <label for="bd2"> <img src="{% static 'images/flask_logo.png' %}" alt="Flask" width="80" height="80" onclick="mark(this)"></label>
+
+                                          &#160; &#160; &#160; &#160; &#160;&#160; &#160;
+                                          <input type="radio" id="bd3" name="bd" value="3" hidden>
+                                          <label for="bd3"> <img src="{% static 'images/php_logo.png' %}" alt="PHP" width="80" height="80" onclick="mark(this)"></label>
+                                          <br>
+                                        </div></div>
+                                        <h6 class="h4 text-gray-900 mb-4">Select Database :</h6>
+                                        <div class="text-center"><div name="input_div">
+                                          <input type="radio" id="db1" name="db" value="1" hidden>
+                                            <label for="db1"> <img src="{% static 'images/oracle_logo.png' %}" alt="Oracle DataBase" width="150" height="120" onclick="mark(this)">
+                                          </label>
+                                           &#160; &#160; &#160; &#160; &#160;&#160; &#160;
+                                          <input type="radio" id="db2" name="db" value="2" hidden>
+                                          <label for="db2"> <img src="{% static 'images/my_sql_logo.png' %}" alt="My Sql DataBase" width="150" height="120" onclick="mark(this)"></label>
+
+                                          &#160; &#160; &#160; &#160; &#160;&#160; &#160;
+                                          <input type="radio" id="db3" name="db" value="3" hidden>
+                                          <label for="db3"> <img src="{% static 'images/postgress_logo.png' %}" alt="postgress Database" width="80" height="80" onclick="mark(this)"></label>
+
+                                          &#160; &#160; &#160; &#160; &#160;&#160; &#160;
+                                          <input type="radio" id="db4" name="db" value="4" hidden>
+                                          <label for="db4"> <img src="{% static 'images/sqlitelogo.png' %}" alt="Sqlite Database" width="100" height="80" onclick="mark(this)"></label>
+                                          <br>
+
+                                            <br>
+                                          <input type="submit" value="Select">
+                                        </div></div>
+                                        </form>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- form end -->
+
+<script>
+function mark(el) {
+    el.style.border = "2px solid blue";
+}
+</script>
+
+</body>
+</html>

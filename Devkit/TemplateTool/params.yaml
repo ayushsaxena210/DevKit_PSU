@@ -1,0 +1,55 @@
+user_project_records: UserProjectRecords
+
+nav:
+  Bootstrap:
+    1: Bootstrap/classic_content_nav.html
+    2: Bootstrap/external_content_nav.html
+    3: Bootstrap/light_nav.html
+  Angular:
+    1: Angular/
+    2: Angular/
+  HTML_CSS_JavaScript:
+    1: HTML_CSS_JavaScript/navbar1.html
+    2: HTML_CSS_JavaScript/navbar2.html
+
+footer:
+  Bootstrap:
+    1: Bootstrap/footer1.html
+    2: Bootstrap/footer2.html
+    3: Bootstrap/footer3.html
+  Angular:
+    1: Angular/
+    2: Angular/
+  HTML_CSS_JavaScript:
+    1: HTML_CSS_JavaScript/footer1.html
+    2: HTML_CSS_JavaScript/footer2.html
+    3: HTML_CSS_JavaScript/footer3.html
+
+Login:
+  Bootstrap:
+    1: Bootstrap/login_form1.html
+    2: Bootstrap/login_form2.html
+    3: Bootstrap/login_form3.html
+  Angular:
+    1: Angular/
+    2: Angular/
+  HTML_CSS_JavaScript:
+    1: HTML_CSS_JavaScript/loginform1.html
+    2: HTML_CSS_JavaScript/loginform2.html
+
+Signup:
+  Bootstrap:
+    1: Bootstrap/signup_form1.html
+    2: Bootstrap/signup_form2.html
+  Angular:
+    1: Angular/
+    2: Angular/
+  HTML_CSS_JavaScript:
+    1: HTML_CSS_JavaScript/signupform1.html
+
+basic:
+  Bootstrap: templates/Bootstrap/basic_template.html
+  Angular: templates/Angular/
+  HTML_CSS_JavaScript: templates/HTML_CSS_JavaScript/basic_template.html
+
+

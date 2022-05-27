@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>DevKit</title>
+     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/cropiq.min.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+    <h5><a href="/" style="color:white;">DevKit</a></h5>
+</nav>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Best tool for Your Project</h1>
+          <h2>  </h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="/Register" class="btn-get-started scrollto">Get Started</a> &nbsp; &nbsp; &nbsp;
+            <a href="/Login" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Already have an account?</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+
+ <script src="{% static 'jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'jquery/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/cropiq.min.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+</body>
+</html>

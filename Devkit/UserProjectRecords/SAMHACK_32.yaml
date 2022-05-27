@@ -1,0 +1,19 @@
+Home_page_heading: HEY its my first project
+Home_page_text: "This app will use the Flask app factory pattern with blueprints.\
+  \ One blueprint handles the regular routes, which include the index and the protected\
+  \ profile page. Another blueprint handles everything auth-related. In a real app,\
+  \ you can break down the functionality in any way you like, but the solution covered\
+  \ here will work well for this tutorial.\r\n\r\nThis file will have the function\
+  \ to create the app, which will initialize the database and register the blueprints.\
+  \ At the moment, this will not do much, but it will be needed for the rest of the\
+  \ app.\r\n\r\nYou will need to initialize SQLAlchemy, set some configuration values,\
+  \ and register the blueprints here:"
+bg_color: '#c1def0'
+project_name: SAMHACK
+selected_backend: Django
+selected_database: Sqlite
+selected_footer: 3
+selected_frontend: Bootstrap
+selected_loginform: 3
+selected_nav_bar: 2
+selected_signupform: 1

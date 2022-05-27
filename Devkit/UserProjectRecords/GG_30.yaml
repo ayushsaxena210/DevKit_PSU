@@ -1,0 +1,11 @@
+Home_page_heading: grer
+Home_page_text: grgt
+bg_color: '#ffffff'
+project_name: GG
+selected_backend: Django
+selected_database: Sqlite
+selected_footer: 2
+selected_frontend: Bootstrap
+selected_loginform: 2
+selected_nav_bar: 2
+selected_signupform: 2

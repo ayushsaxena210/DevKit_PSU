@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <title>DevKit | Dashboard</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/cropiq.min.css' %}" rel="stylesheet">
+
+    <script>
+        @font-face {
+           font-family: myFirstFont;
+           src: url(sansation_light.woff);
+        }
+
+        * {
+           font-family: myFirstFont;
+        }
+    </script>
+</head>
+<body>
+<!-- Nav started -->
+ <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+                     <h5><a href="/" style="color:white;">DevKit</a></h5>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFGiJ_tIEbFuvt7J7d17ldDOetn-PZteEIDQ&usqp=CAU" style="max-width: 60px">
+                                <span class="ml-2 d-none d-lg-inline text-white small">{{request.user.first_name|title}}&nbsp;{{request.user.last_name|title}}</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal"
+                                    data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+<!-- Nav ended -->
+
+
+<!-- container start -->
+ <div class="container-login">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-12 col-md-9">
+                <div class="card shadow-sm my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div style="width: 50%; float:left">
+                                   <div class="login-form">
+                                    <div class="text-center">
+                                        <h6 class="h4 text-gray-900 mb-4"><b> Previous Projects </b></h6></div><br>
+                                            {% for project in Project_record_obj %}
+                                            <li><a href="/webapp/{{project.pk}}">{{project.project_name|upper}}</a></li>
+                                            {% endfor %}
+                                </div>
+                                </div>
+                                <div style="width: 50%; float:right">
+                                   <div class="login-form">
+                                    <div class="text-center">
+                                        <h6 class="h4 text-gray-900 mb-4"><b> Create New Project </b></h6><br>
+                                        &#160;&#160;&#160;&#160;<a href="/webapp"><img src="{% static 'images/webapp.png' %}" height ="100" width="100" /></a>&#160; &#160; &#160;&#160; &#160; &#160;&#160; &#160; &#160;
+                                        <a href="/webapp"><img src="{% static 'images/ios.jpg' %}" height ="100" width="130" /></a>
+                                        <br><br><br><br>
+                                        <a href="/webapp"> <img src="{% static 'images/desktop.jpg' %}" height ="100" width="100" /></a>&#160; &#160; &#160;&#160;&#160;&#160;&#160; &#160; &#160;&#160; &#160; &#160;
+                                        <a href="/webapp"> <img src="{% static 'images/mobileapp.jpg' %}" height ="100" width="60" /></a>
+                                    </div>
+                                </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- container end -->
+
+
+
+
+
+
+

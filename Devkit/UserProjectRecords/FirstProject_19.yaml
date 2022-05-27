@@ -1,0 +1,6 @@
+project_name: FirstProject
+selected_backend: Django
+selected_database: Oracle
+selected_footer: 3
+selected_frontend: Bootstrap
+selected_nav_bar: 2

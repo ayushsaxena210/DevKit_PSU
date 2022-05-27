@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>DevKit</title>
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/cropiq.min.css' %}" rel="stylesheet">
+
+</head>
+<!-- TopBar -->
+<nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+    <h5><a href="/" style="color:white;">DevKit</a></h5>
+</nav>
+<!-- Topbar -->
+<body class="bg-gradient-login">
+  <!-- Register Content -->
+  <div class="container-login">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-12 col-md-9">
+                <div class="card shadow-sm my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="login-form">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Register</h1>
+                  </div>
+                  <form method="post" onsubmit="return verifyform()">
+                     {% csrf_token %}
+                    <div class="form-group">
+                      <label>First Name<span style="color:red;">*</span></label>
+                      <input type="text" class="form-control" id="exampleInputFirstName" name="fname" placeholder="Enter First Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Last Name<span style="color:red;">*</span></label>
+                      <input type="text" class="form-control" id="exampleInputLastName" name="lname" placeholder="Enter Last Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Email<span style="color:red;">*</span></label>
+                      <input type="email" class="form-control" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Password<span style="color:red;">*</span></label>
+                      <input type="password" class="form-control" id="exampleInputPassword" name="secretcode" placeholder="Password" required>
+                        <span id = "messagepass" style="color:red"> </span>
+                    </div>
+                    <div class="form-group">
+                      <label>Confirm Password<span style="color:red;">*</span></label>
+                      <input type="password" class="form-control" id="exampleInputPasswordRepeat" placeholder="Confirm Password" required>
+                      <span id='message'></span>
+                    </div>
+
+                    <div class="form-group">
+                      <input type="submit" value="Register">
+                    </div>
+                    <h6 class="small"><span style="color:red;">*</span>Required Field</h6>
+                  </form>
+
+
+                  <hr>
+                  <div class="text-center">
+                    <a class="font-weight-bold small" href="/Login">Already have an account?</a>
+                  </div>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Scrollable -->
+  <div class="modal fade" id="ModalScrollable" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalScrollableTitle">Terms & Conditions</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5 class="font-weight-bold">...</h5>
+          <p>...</p>
+          <h5 class="font-weight-bold">...</h5>
+          <p>...</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">ACCEPT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Content -->
+  <script src="{% static 'jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'jquery/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/cropiq.min.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#exampleInputPassword, #exampleInputPasswordRepeat').on('keyup', function () {
+  if ($('#exampleInputPassword').val() == $('#exampleInputPasswordRepeat').val()) {
+    $('#message').html('Matching').css('color', 'green');
+  } else
+    $('#message').html('Not Matching').css('color', 'red');
+});</script>
+
+<script>
+function verifyform() {
+      var pw = document.getElementById("exampleInputPassword").value;
+      //check empty password field
+      if(pw == "") {
+         document.getElementById("messagepass").innerHTML = "**Fill the password please!";
+         return false;
+      }
+
+     //minimum password length validation
+      if(pw.length < 8) {
+         document.getElementById("messagepass").innerHTML = "**Password length must be atleast 8 characters";
+         return false;
+      }
+
+    //maximum length of password validation
+      if(pw.length > 15) {
+         document.getElementById("messagepass").innerHTML = "**Password length must not exceed 15 characters";
+         return false;
+      }
+      // validate mobile number
+      var mb = document.getElementById("exampleInputMobileNumber").value;
+      if(mb.length > 10) {
+         document.getElementById("messagemb").innerHTML = "**Mobile Number Should contain only 10 digit";
+         return false;
+      }
+      if(mb.length < 10) {
+         document.getElementById("messagemb").innerHTML = "**Mobile Number Should contain 10 digit only";
+         return false;
+      }
+}
+</script>
+
+</body>
+</html>

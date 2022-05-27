@@ -1,0 +1,8 @@
+project_name: Google
+selected_backend: PHP
+selected_database: MySql
+selected_footer: 2
+selected_frontend: Bootstrap
+selected_loginform: 3
+selected_nav_bar: 2
+selected_signupform: 1

@@ -1,0 +1,11 @@
+Home_page_heading: hey
+Home_page_text: heyheyhey
+bg_color: '#ffffff'
+project_name: DOGGGy
+selected_backend: Django
+selected_database: Postgre
+selected_footer: 2
+selected_frontend: Bootstrap
+selected_loginform: 3
+selected_nav_bar: 2
+selected_signupform: 2
