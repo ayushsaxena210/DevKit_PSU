@@ -212,6 +212,8 @@ def other_details(request ,project_id):
             Create_Flask_APP(project_id)
         if selected_backend == "PHP":
             Create_PHP_APP(project_id)
+        return HttpResponseRedirect('/download_template')
+
     return render(request=request,
                   template_name="web_other_details_selection.html",
                   context={})
@@ -397,3 +399,17 @@ def Create_Flask_APP(project_id):
 
 def Create_PHP_APP(project_id):
     return
+
+
+import shutil
+from django.http import FileResponse
+@login_required(login_url='/Login')
+def download_template(response):
+    dir_name = os.path.join(settings.BASE_DIR, 'native_app_temp')
+    output_filename = os.path.join(settings.BASE_DIR, 'Application')
+    if os.path.exists(output_filename):
+        os.remove(output_filename)
+    shutil.make_archive(output_filename, 'zip', dir_name)
+    dataset = open(output_filename+'.zip', 'rb')
+    response = FileResponse(dataset)
+    return response
