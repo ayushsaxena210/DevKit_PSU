@@ -37,7 +37,7 @@ Note the (env) in front of the prompt. This indicates that this terminal session
 ##### For applying migrations or to creating new migrations
   
 ```bash
-(venv)Devkit>  python manage.py makemigrations cropiqapp
+(venv)Devkit>  python manage.py makemigrations
 ```
 ```bash
 (venv)Devkit>  python manage.py migrate
