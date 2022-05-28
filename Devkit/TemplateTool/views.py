@@ -358,6 +358,88 @@ def config_database_django(custom_template_path, project_config_file):
         f.write(readme_content)
 
 
+def write_html_files_php(nav_path, footer_path, other, custom_file_template_path, project_config_file):
+    nav = open(os.path.join(settings.BASE_DIR, 'templates', nav_path))
+    nav = nav.read()
+    nav = bs4.BeautifulSoup(nav)
+    nav.h4.string = project_config_file['project_name']
+    footer = open(os.path.join(settings.BASE_DIR, 'templates', footer_path))
+    footer = footer.read()
+    footer = bs4.BeautifulSoup(footer)
+    with open(custom_file_template_path) as inf:
+        txt = inf.read()
+        soup = bs4.BeautifulSoup(txt)
+    #changing template color accoring to user's input
+    soup.body['style'] = "background-color: {};".format(project_config_file['bg_color'])
+    #changing color end here
+    soup.body.nav.append(nav)
+    if other:
+        soup.body.append(other)
+    else:
+        soup.body.h1.append(project_config_file['Home_page_heading'])
+        soup.body.p.append(project_config_file['Home_page_text'])
+    soup.body.footer.append(footer)
+
+    with open(custom_file_template_path, "w") as outf:
+        outf.write(str(soup))
+
+def generate_frontend_layout_php(custom_template_path, selected_frontend, project_config_file, config_file):
+    custom_template_path = os.path.join(custom_template_path, 'application', 'templates')
+    print("custom_template_path", custom_template_path)
+    if selected_frontend == 'Bootstrap':
+        basic_template = config_file['basic']['Bootstrap']
+        custom_home_template_path = os.path.join(custom_template_path, 'index.html')
+        custom_login_template_path = os.path.join(custom_template_path, 'login.html')
+        custom_signup_template_path = os.path.join(custom_template_path, 'signup.html')
+        shutil.copy(basic_template, custom_home_template_path)
+        shutil.copy(basic_template, custom_login_template_path)
+        shutil.copy(basic_template, custom_signup_template_path)
+
+        nav_path = config_file['nav']['Bootstrap'][project_config_file['selected_nav_bar']]
+        footer_path = config_file['footer']['Bootstrap'][project_config_file['selected_footer']]
+        login_form_path = config_file['Login']['Bootstrap'][project_config_file['selected_loginform']]
+        signup_form_path = config_file['Signup']['Bootstrap'][project_config_file['selected_signupform']]
+
+        login_form = open(os.path.join(settings.BASE_DIR, 'templates', login_form_path))
+        login_form = login_form.read()
+        login_form = bs4.BeautifulSoup(login_form)
+        signup_form = open(os.path.join(settings.BASE_DIR, 'templates', signup_form_path))
+        signup_form = signup_form.read()
+        signup_form = bs4.BeautifulSoup(signup_form)
+
+        write_html_files_php(nav_path, footer_path, False, custom_home_template_path, project_config_file)
+        write_html_files_php(nav_path, footer_path, login_form, custom_login_template_path, project_config_file)
+        write_html_files_php(nav_path, footer_path, signup_form, custom_signup_template_path, project_config_file)
+
+    if selected_frontend == 'Angular':
+        basic_template = config_file['basic']['Angular']
+
+    if selected_frontend == 'HTML_CSS_JavaScript':
+        basic_template = config_file['basic']['HTML_CSS_JavaScript']
+        custom_home_template_path = os.path.join(custom_template_path, 'index.html')
+        custom_login_template_path = os.path.join(custom_template_path, 'login.html')
+        custom_signup_template_path = os.path.join(custom_template_path, 'signup.html')
+        shutil.copy(basic_template, custom_home_template_path)
+        shutil.copy(basic_template, custom_login_template_path)
+        shutil.copy(basic_template, custom_signup_template_path)
+
+        nav_path = config_file['nav']['HTML_CSS_JavaScript'][project_config_file['selected_nav_bar']]
+        footer_path = config_file['footer']['HTML_CSS_JavaScript'][project_config_file['selected_footer']]
+        login_form_path = config_file['Login']['HTML_CSS_JavaScript'][project_config_file['selected_loginform']]
+        signup_form_path = config_file['Signup']['HTML_CSS_JavaScript'][project_config_file['selected_signupform']]
+
+        login_form = open(os.path.join(settings.BASE_DIR, 'templates', login_form_path))
+        login_form = login_form.read()
+        login_form = bs4.BeautifulSoup(login_form)
+        signup_form = open(os.path.join(settings.BASE_DIR, 'templates', signup_form_path))
+        signup_form = signup_form.read()
+        signup_form = bs4.BeautifulSoup(signup_form)
+
+        write_html_files_php(nav_path, footer_path, False, custom_home_template_path, project_config_file)
+        write_html_files_php(nav_path, footer_path, login_form, custom_login_template_path, project_config_file)
+        write_html_files_php(nav_path, footer_path, signup_form, custom_signup_template_path, project_config_file)
+    return
+
 def Create_Django_APP(project_id):
     Project_record_obj = Project_record.objects.get(pk=project_id)
     yamlfile_address = Project_record_obj.yaml_file
@@ -400,7 +482,18 @@ def Create_Flask_APP(project_id):
     # config_database_django(custom_template_path, project_config_file)
 
 def Create_PHP_APP(project_id):
-    return
+    Project_record_obj = Project_record.objects.get(pk=project_id)
+    yamlfile_address = Project_record_obj.yaml_file
+    project_config_file = read_params(config_path=os.path.join(settings.BASE_DIR, yamlfile_address))
+    config_file = read_params()
+    selected_frontend = project_config_file['selected_frontend']
+
+    # function to copy backend template structure into User_Custom_APP
+    main_flask_templete_path = os.path.join(settings.BASE_DIR, 'native_apps_templates', 'PHP')
+    custom_template_path = os.path.join(settings.BASE_DIR, 'native_app_temp')
+    shutil.rmtree(custom_template_path)
+    shutil.copytree(main_flask_templete_path, custom_template_path)
+    generate_frontend_layout_php(custom_template_path, selected_frontend, project_config_file, config_file)
 
 
 import shutil
