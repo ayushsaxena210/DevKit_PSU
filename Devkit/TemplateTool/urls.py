@@ -14,5 +14,6 @@ urlpatterns = [
     path('webapp/<int:project_id>/loginform', views.record_loginform, name="record_loginform"),
     path('webapp/<int:project_id>/signupform', views.record_signupform, name="record_signupform"),
     path('webapp/<int:project_id>/otherdetails', views.other_details, name="other_details"),
-    path('download_template', views.download_template, name="download_template"),
+    #path('download_template', views.download_template, name="download_template"),
+    path('download_template/<str:application_name>', views.download_template, name="download_template"),
 ]
